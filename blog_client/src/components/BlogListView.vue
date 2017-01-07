@@ -1,7 +1,7 @@
 <template>
   <div class="list-view">
     <article class="list-view-cell" v-for="item in items">
-      <header><a @click="toPage(item.id)">{{item.title}}</a></header>
+      <header><router-link :to="{ name: 'detail', params: { id: item.id }}">{{item.title}}</router-link></header>
       <section>{{item.context}}</section>
       <footer></footer>
     </article>
@@ -11,12 +11,7 @@
 <script>
 export default {
   name: 'list-view',
-  props: ['items'],
-  methods: {
-    toPage (id) {
-      router.push({path: '/detail/' + id})
-    }
-  }
+  props: ['items']
 }
 
 </script>
