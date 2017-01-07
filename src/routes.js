@@ -1,5 +1,5 @@
-import Home from './components/Home'
-import Detail from './components/Detail'
+import Home from './pages/Home'
+import Detail from './pages/Detail'
 
 export default [
   {

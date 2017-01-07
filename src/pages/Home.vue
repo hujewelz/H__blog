@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import BlogListView from './BlogListView'
+import BlogListView from '../components/BlogListView'
 
 export default {
   name: 'home',
