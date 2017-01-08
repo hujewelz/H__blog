@@ -20,7 +20,7 @@ export default {
 
 .list-view-cell {
   padding: 40px 20px;
-  background-color: red;
+  /*background-color: red;*/
 }
 .list-view-cell header {
   font-size: 2.6em;
@@ -43,7 +43,7 @@ export default {
   content: '';
   -webkit-transform: scaleY(.5);
   transform: scaleY(.5);
-  background-color: #000; 
+  background-color: #c8c7cc;
   bottom: 8px;
 }
 
