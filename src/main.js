@@ -3,34 +3,16 @@
 import Vue from 'vue'
 import routes from './routes'
 import VueRouter from 'vue-router'
+import resource from 'vue-resource'
 
 /* eslint-disable no-new */
 Vue.use(VueRouter)
+Vue.use(resource)
 
 const router = new VueRouter({
   routes
 })
 
 new Vue({
-  // el: '#app',
-  // data: {
-  //   currentRoute: window.location.pathname
-  // },
-  // computed: {
-  //   ViewComponent () {
-  //     const matchingView = routes[this.currentRoute]
-  //     console.log('this.currentRoute:' + this.currentRoute + ',' + matchingView)
-  //     return matchingView
-  //       ? require('./components/' + matchingView + '.vue')
-  //       : require('./components/404.vue')
-  //   }
-  // },
-  // render (h) {
-  //   return h(this.ViewComponent)
-  // }
   router
 }).$mount('#app')
-
-// window.addEventListener('popstate', () => {
-//   app.currentRoute = window.location.pathname
-// })

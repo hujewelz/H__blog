@@ -1,7 +1,7 @@
 <template>
   <div class="detail">
     <h1>{{ $route.params.id }} detail !!!</h1>
-    <div v-html="markedContent"></div>
+    <div v-html="content"></div>
   </div>
 </template>
 
@@ -11,8 +11,15 @@ import marked from 'marked'
 export default {
   data () {
     return {
-      content: '* hahhah'
+      content: '``` function test() {}```'
     }
+  },
+  mounted () {
+    this.$http.get('http://localhost:3001/api')
+      .then(res => {
+        console.log(JSON.stringify(res.body.data))
+        this.content = JSON.stringify(res.body.data)
+      })
   },
   computed: {
     markedContent () {
@@ -21,3 +28,8 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  /*@import '../../node_modules/highlight/lib/vendor/lighlight.js/styles/default.css'*/
+  @import 'https://github.com/isagalaev/highlight.js/blob/master/src/styles/default.css'
+</style>
