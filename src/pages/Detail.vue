@@ -6,17 +6,17 @@
 </template>
 
 <script>
-import marked from 'marked'
+import marked from '../marked'
 
 export default {
   data () {
     return {
-      content: '* hahhah'
+      content: '```js\n console.log("hello"); \n```'
     }
   },
   computed: {
     markedContent () {
-      return marked(this.content, { sanitize: true })
+      return marked(this.content)
     }
   }
 }
