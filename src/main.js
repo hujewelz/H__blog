@@ -12,25 +12,5 @@ const router = new VueRouter({
 })
 
 new Vue({
-  // el: '#app',
-  // data: {
-  //   currentRoute: window.location.pathname
-  // },
-  // computed: {
-  //   ViewComponent () {
-  //     const matchingView = routes[this.currentRoute]
-  //     console.log('this.currentRoute:' + this.currentRoute + ',' + matchingView)
-  //     return matchingView
-  //       ? require('./components/' + matchingView + '.vue')
-  //       : require('./components/404.vue')
-  //   }
-  // },
-  // render (h) {
-  //   return h(this.ViewComponent)
-  // }
   router
 }).$mount('#app')
-
-// window.addEventListener('popstate', () => {
-//   app.currentRoute = window.location.pathname
-// })

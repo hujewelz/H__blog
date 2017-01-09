@@ -1,5 +1,6 @@
 import Home from './pages/Home'
 import Detail from './pages/Detail'
+import New from './pages/AddArticle'
 
 export default [
   {
@@ -11,5 +12,10 @@ export default [
     name: 'detail',
     path: '/detail/:id',
     component: Detail
+  },
+  {
+    name: 'new',
+    path: '/new',
+    component: New
   }
 ]
