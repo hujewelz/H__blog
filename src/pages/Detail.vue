@@ -6,7 +6,8 @@
 </template>
 
 <script>
-import marked from 'marked'
+import rend from '../utils/render'
+import '../../node_modules/prismjs/themes/prism.css'
 
 export default {
   data () {
@@ -23,13 +24,11 @@ export default {
   },
   computed: {
     markedContent () {
-      return marked(this.content, { sanitize: true })
+      return rend(this.content)
     }
   }
 }
 </script>
 
 <style scoped>
-  /*@import '../../node_modules/highlight/lib/vendor/lighlight.js/styles/default.css'*/
-  @import 'https://github.com/isagalaev/highlight.js/blob/master/src/styles/default.css'
 </style>

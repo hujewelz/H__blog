@@ -2,19 +2,26 @@
   <div id="editor">
     <div class="input-area">
       <input v-model="title" type="text" name="title" >
+      <div class="status-bar">
+        <div class="left">
+          <button>保存</button>
+          <span></span>
+        </div>
+        <button>提交</button>
+      </div>
       <textarea :value="content" @input="update"></textarea>
     </div>
     <div class="result">
       <h1 id="preview-title">{{ title }}</h1>
-      <p v-html="markedContent"></p>
+      <div v-html="markedContent"></div>
     </div>
   </div>
 </template>
 
 <script>
-import marked from 'marked'
-import hljs from 'highlight'
-
+import rend from '../utils/render'
+import '../../node_modules/prismjs/themes/prism.css'
+import '../../static/prism.js'
 export default {
   data () {
     return {
@@ -24,7 +31,7 @@ export default {
   },
   computed: {
     markedContent () {
-      return marked(this.content, { sanitize: true })
+      return rend(this.content)
     }
   },
   methods: {
@@ -36,8 +43,6 @@ export default {
 </script>
 
 <style scoped>
-  @import '../../static/default.css';
-
   #editor {
     display: flex;
     display: -webkit-flex;
@@ -47,7 +52,6 @@ export default {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     color: #333;
   }
-
   .input-area, .result {
     width: 50%;
     height: 100%;
@@ -61,12 +65,35 @@ export default {
     display: -webkit-flex;
     flex-direction: column;
   }
+  .status-bar {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    min-height: 40px;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+  }
+  .left span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    background-color: #42b983;
+  }
   .result {
     border: none;
     border-left: 1px solid #ccc;
     padding: 30px;
+    overflow: auto;
   }
-
+  .result div {
+    line-height: 1.6em;
+    letter-spacing: 2px;
+  }
   input {
     width: 100%;
     height: 32px;
@@ -77,7 +104,6 @@ export default {
     border-bottom: 1px solid #ccc;
     background-color: #fff;
   }
-
   textarea {
     display: inline-block;
     box-sizing: border-box;
@@ -86,21 +112,17 @@ export default {
     height: 100%;
     resize: none;
     outline: none;
-    font-size: 14px;
+    font-size: 1em;
     font-family: 'Monaco', courier, monospace;
     background-color: #fff;
     padding: 20px;
+    line-height: 1.6em;
+    letter-spacing: 2px;
   }
-
   #preview-title {
     margin-top: 0;
   }
-  pre {
-    padding: 20px;
-    background-color: red;
-  }
-
-  code {
+  .result code {
     color: #f66;
     background-color: red;
   }

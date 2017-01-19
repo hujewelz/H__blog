@@ -15,7 +15,7 @@ export default [
   },
   {
     name: 'new',
-    path: '/new',
+    path: '/admin/new',
     component: New
   }
 ]
