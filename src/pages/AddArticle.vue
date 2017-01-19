@@ -21,7 +21,7 @@
 <script>
 import rend from '../utils/render'
 import '../../node_modules/prismjs/themes/prism.css'
-import '../../static/prism.js'
+
 export default {
   data () {
     return {

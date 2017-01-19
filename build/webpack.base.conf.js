@@ -48,10 +48,7 @@ module.exports = {
         include: [
           path.join(projectRoot, 'src')
         ],
-        exclude: [
-          /node_modules/,
-           path.join(projectRoot, 'src/utils/prism.js')
-        ]
+        exclude: /node_modules/
       }
     ],
     loaders: [

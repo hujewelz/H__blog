@@ -12,7 +12,7 @@ import '../../node_modules/prismjs/themes/prism.css'
 export default {
   data () {
     return {
-      content: '``` function test() {}```'
+      content: '```js\n console.log("hello"); \n```'
     }
   },
   mounted () {
@@ -31,4 +31,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>
