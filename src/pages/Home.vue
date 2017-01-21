@@ -37,9 +37,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-/*@import url('../../node_modules/bootstrap/dist/css/bootstrap.min.css');*/
-
 h1, h2 {
   font-weight: normal;
 }
