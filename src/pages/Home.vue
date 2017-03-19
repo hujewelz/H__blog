@@ -23,14 +23,16 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      items: [
-        {
-          id: 1,
-          title: 'Vue2.0 toturs',
-          context: 'Vue.js（读音 /vjuː/, 类似于 view） 是一套构建用户界面的 渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和 Vue 生态系统支持的库开发的复杂单页应用。'
-        }
-      ]
+      items: []
     }
+  },
+  created () {
+    const self = this
+    this.$http.get('http://localhost:3000/posts')
+      .then(res => {
+        console.log(JSON.stringify(res.body.result))
+        self.items = res.body.result
+      })
   }
 }
 </script>

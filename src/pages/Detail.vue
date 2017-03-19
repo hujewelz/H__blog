@@ -1,30 +1,31 @@
 <template>
   <div class="detail">
-    <h1>{{ $route.params.id }} detail !!!</h1>
-    <div v-html="content"></div>
+    <h1>{{ this.post.title }}</h1>
+    <div v-html="markedContent"></div>
   </div>
 </template>
 
 <script>
 import rend from '../utils/render'
 import '../../node_modules/prismjs/themes/prism.css'
-
 export default {
   data () {
     return {
-      content: '```js\n console.log("hello"); \n```'
+      post: {}
     }
   },
-  mounted () {
-    this.$http.get('http://localhost:3001/api')
+  created () {
+    const url = `http://localhost:3000/posts/${this.$route.params.id}`
+    const self = this
+    this.$http.get(url)
       .then(res => {
-        console.log(JSON.stringify(res.body.data))
-        this.content = JSON.stringify(res.body.data)
+        console.log(JSON.stringify(res.body.result))
+        self.post = res.body.result
       })
   },
   computed: {
     markedContent () {
-      return rend(this.content)
+      return rend(this.post.content || '')
     }
   }
 }

@@ -1,16 +1,16 @@
 <template>
   <div id="editor">
-    <div class="input-area">
+    <form class="input-area" method="post" action="http://localhost:3000/posts">
       <input v-model="title" type="text" name="title" >
       <div class="status-bar">
         <div class="left">
           <button>保存</button>
           <span></span>
         </div>
-        <button>提交</button>
+        <button @submint="submit">提交</button>
       </div>
-      <textarea :value="content" @input="update"></textarea>
-    </div>
+      <textarea :value="content" @input="update" name="content"></textarea>
+    </form>
     <div class="result">
       <h1 id="preview-title">{{ title }}</h1>
       <div v-html="markedContent"></div>
@@ -21,7 +21,6 @@
 <script>
 import rend from '../utils/render'
 import '../../node_modules/prismjs/themes/prism.css'
-
 export default {
   data () {
     return {
@@ -37,6 +36,8 @@ export default {
   methods: {
     update (e) {
       this.content = e.target.value
+    },
+    submit () {
     }
   }
 }

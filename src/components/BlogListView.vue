@@ -1,8 +1,8 @@
 <template>
   <div class="list-view">
     <article class="list-view-cell" v-for="item in items">
-      <header><router-link :to="{ name: 'detail', params: { id: item.id }}">{{item.title}}</router-link></header>
-      <section>{{item.context}}</section>
+      <header><router-link :to="{ name: 'detail', params: { id: item._id }}">{{item.title}}</router-link></header>
+      <section>{{item.content}}</section>
       <footer></footer>
     </article>
   </div>
